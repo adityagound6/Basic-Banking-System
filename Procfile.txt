@@ -1,0 +1,1 @@
+web: gunicorn bharat_bank.wsgi

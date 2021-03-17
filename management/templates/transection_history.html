@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+<link href="{% static '/management/static/management/css/viewcustomer.css' %}">
+{% block title %}
+Transection History
+{% endblock title %}
+
+{% block content %}
+  
+<div class="container col-lg-8">
+    <div class="p-4 m-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>From account</th>
+                    <th>To account</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tra_hist in tra_hist %}
+                  <tr>
+                      <td>{{tra_hist.from_account}}</td>
+                      <td>{{tra_hist.to_account}}</td>
+                      <td>{{tra_hist.amount}}</td>
+                      <td>{{tra_hist.date_time}}</td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        
+    </div>
+
+
+{% endblock content %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'management/css/viewcustomer.css' %}">
+{% endblock css %}

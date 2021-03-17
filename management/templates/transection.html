@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Fund Transfer
+{% endblock title %}
+{% block content %}
+
+<div class="container col-lg-5">
+    <div class="m-4 p-4">
+        <div >
+            <div >
+                <h3 >Fund Transfer</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Name</th>
+                            <th>Current Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>            
+                            <td>{{from_customer.account_number}}</td>
+                            <td>{{from_customer.name}}</td>
+                            <td>{{from_customer.current_balance}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div >
+                <form action="{% url 'transection_history' %}" method="POST">
+                    {% csrf_token %}   
+                    <div>                    
+                            <div class="form-group p-1 m-1">
+                                <h3>Fund Transfer To</h3>
+                                <label for="sel1">Select Account</label>
+                                <select name="to_account" class="form-control" id="sel1">
+                                  {% for customer in to_customer %}
+                                    
+                                        {% if from_customer != customer %}
+                                            <option>{{customer.account_number}}</option>
+                                        {% endif %}
+                                    
+                                  {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group p-1 m-1">
+                                <label for="usr">Amount(₹)</label>
+                                <input type="number" name="amount" class="form-control" id="usr">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Transfer</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+  
+{% endblock content %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'management/css/viewcustomer.css' %}">
+{% endblock css %}

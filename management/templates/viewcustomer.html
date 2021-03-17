@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+<link href="{% static '/management/static/management/css/viewcustomer.css' %}">
+{% block title %}
+Customer
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-lg-8">
+
+    <div class="container p-4 m-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Current Balance(₹)</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customer %}
+                  <tr>
+                      <td>{{customer.account_number}}</td>
+                      <td>{{customer.name}}</td>
+                      <td>{{customer.email}}</td>
+                      <td>{{customer.current_balance}}</td>
+                      <td><a class="btn btn-primary" href="/transection/{{customer.slug}}" role="button">VIEW CUSTOMER</a></td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+  
+
+
+{% endblock content %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'management/css/viewcustomer.css' %}">
+{% endblock css %}

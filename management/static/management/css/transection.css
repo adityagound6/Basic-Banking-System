@@ -1,0 +1,16 @@
+table
+{
+    margin-top: 20px;
+    width: 100%;
+    margin: auto;
+    padding: auto;
+}
+table,th,td
+{
+    border: 1px solid black;
+}
+td,th
+{
+    text-align: center;
+    height: 60px;
+}

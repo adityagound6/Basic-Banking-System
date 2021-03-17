@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+{% load static %}
+<link href="{% static '/management/static/management/css/home.css' %}">
+{% block title %}
+
+Home
+  
+{% endblock title %}
+
+{% block content %}  
+
+<div class="container">
+    <div class="m-4 p-4">
+        <div class="col-lg-4 mx-auto border rounded">
+            <h3 class="alert alert-light  border rounded ">Welcome to BHARAT BANK</h3>
+            {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+            {% endif %}
+
+            <div>
+
+                <div class="container-fluied">
+                    <h1>Welcome to Bharat Bank</h1>
+                    <p>We are Here to help you please click on view customer</p>
+                </div>
+                <a class="btn btn-primary" href="/viewcustomer" role="button">VIEW CUSTOMER</a>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'management/css/home.css' %}">
+{% endblock css %}
